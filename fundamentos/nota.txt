@@ -15,3 +15,10 @@ Es una información que no es un objeto y son inmutables.
  - Number: integers, float, etc.
  - String: Una cadena de caracteres, ej: Palabras, nombre de personas
  - Symbol: Es un valor único que no es igual a ningún otro valor.
+
+*Palabras Reservadas:
+Son palabras que tienen un uso específico
+
+*Arreglos: 
+Son un objeto muy parecido a una lista de informacion, que contienen un grupo de elementos.
+Usualmente, esa información dentro del arreglo es del mismo tipo de dato.
