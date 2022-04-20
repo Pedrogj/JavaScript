@@ -1,0 +1,5 @@
+Variable: Es un contenedor de informacion que apunta a un lugar en memoria.
+Dicha informacion puede cambiar en el futuro.
+
+Polyfill: Es un codigo que provee el funcionamiento de una nueva caracteristica de JavaScript (ES6),
+en versiones viejas como ES5
