@@ -9,6 +9,13 @@ let deck = [];
 const typesCards = ["C", "D", "H", "S"];
 const specials = ["A", "J", "Q", "K"];
 
+let playerPoints = 0,
+  machine = 0;
+
+// Referencias del HTML
+const btnAsk = document.querySelector("#btnAskForAletter");
+const smalls = document.querySelectorAll("small");
+
 // Esta funcion crea un nuevo deck
 const createDeck = () => {
   for (let i = 2; i <= 10; i++) {
@@ -23,10 +30,7 @@ const createDeck = () => {
     }
   }
 
-  //console.log(deck);
-
   deck = _.shuffle(deck);
-  // console.log(deck);
 
   return deck;
 };
@@ -41,13 +45,8 @@ const takeLetter = () => {
 
   const letter = deck.pop();
 
-  console.log(deck);
-  console.log(letter);
-
   return letter;
 };
-
-takeLetter();
 
 // Pedir Carta
 const letterValue = (letter) => {
@@ -56,5 +55,11 @@ const letterValue = (letter) => {
   return isNaN(value) ? (value === "A" ? 11 : 10) : parseInt(value);
 };
 
-const value = letterValue(takeLetter());
-console.log({ value });
+// Eventos
+btnAsk.addEventListener("click", () => {
+  const letter = takeLetter();
+
+  playerPoints = playerPoints + letterValue(letter);
+
+  smalls[0].innerText = playerPoints;
+});
