@@ -14,6 +14,7 @@ let playerPoints = 0,
 
 // Referencias del HTML
 const btnAsk = document.querySelector("#btnAskForAletter");
+const divLetterPlayer = document.querySelector("#jugador-cartas");
 const smalls = document.querySelectorAll("small");
 
 // Esta funcion crea un nuevo deck
@@ -62,4 +63,19 @@ btnAsk.addEventListener("click", () => {
   playerPoints = playerPoints + letterValue(letter);
 
   smalls[0].innerText = playerPoints;
+
+  // <img class="carta" src="assets/cartas/2C.png" />
+  // add imgLetter
+  const imgLetter = document.createElement("img");
+  imgLetter.src = `assets/cartas/${letter}.png`; // 3H, 2D ...
+  imgLetter.classList.add("carta");
+  divLetterPlayer.append(imgLetter);
+
+  if (playerPoints > 21) {
+    console.warn("GAME OVER!");
+    btnAsk.disabled = true;
+  } else if (playerPoints === 21) {
+    console.info("GANASTE!");
+    btnAsk.disabled = true;
+  }
 });
